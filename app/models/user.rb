@@ -7,5 +7,5 @@ class User < ApplicationRecord
             length: { minimum: 6 },
             if: -> { new_record? || !password.nil? }
 
-  role: ["admin", "user"]
+  enum role: ["admin", "user"]
 end
