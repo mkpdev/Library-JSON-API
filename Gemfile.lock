@@ -56,6 +56,7 @@ GEM
       activesupport (>= 5.0)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
+    interactor (3.1.2)
     jwt (2.3.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -135,6 +136,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   byebug
+  interactor (~> 3.0)
   jwt
   listen (>= 3.0.5, < 3.2)
   pg
