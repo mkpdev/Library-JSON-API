@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :authorize_request
   before_action :set_book, only: [:show, :update, :destroy]
 
   # GET /books
@@ -10,12 +11,15 @@ class BooksController < ApplicationController
 
   # GET /books/1
   def show
+    authorize @book
+
     render json: @book
   end
 
   # POST /books
   def create
     @book = Book.new(book_params)
+    authorize @book
 
     if @book.save
       render json: @book, status: :created, location: @book
@@ -26,6 +30,8 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1
   def update
+    authorize @book
+
     if @book.update(book_params)
       render json: @book
     else
@@ -35,6 +41,8 @@ class BooksController < ApplicationController
 
   # DELETE /books/1
   def destroy
+    authorize @book
+
     @book.destroy
   end
 

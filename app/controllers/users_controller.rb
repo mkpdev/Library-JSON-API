@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorize_request, except: :create
+  before_action :authorize_request
   before_action :find_user, except: %i[create index]
 
   # GET /users
@@ -10,12 +10,16 @@ class UsersController < ApplicationController
 
   # GET /users/{username}
   def show
+    authorize @user
+
     render json: @user, status: :ok
   end
 
   # POST /users
   def create
     @user = User.new(user_params)
+    authorize @user
+
     if @user.save
       render json: @user, status: :created
     else
@@ -26,6 +30,8 @@ class UsersController < ApplicationController
 
   # PUT /users/{username}
   def update
+    authorize @user
+
     unless @user.update(user_params)
       render json: { errors: @user.errors.full_messages },
              status: :unprocessable_entity
@@ -34,6 +40,8 @@ class UsersController < ApplicationController
 
   # DELETE /users/{username}
   def destroy
+    authorize @user
+
     @user.destroy
   end
 
