@@ -16,12 +16,25 @@ class CheckoutsController < ApplicationController
 
   def update
     @checkout = @current_user.checkouts.find(params[:id])
+    authorize @checkout
 
     if @checkout.update(return_at: DateTime.now, status: 1)
       render json: @checkout, location: @checkout
     else
       render json: @checkout.errors, status: :unprocessable_entity
     end
+  end
+
+  def index
+    if params[:book_id].present?
+      @checkouts = Checkout.where(book_id: params[:book_id])
+    elsif params[:user_id].present?
+      @checkouts = Checkout.where(user_id: params[:user_id])
+    else
+      @checkouts = Checkout.all
+    end
+
+    render json: @checkouts, status: :ok
   end
 
   private
