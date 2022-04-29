@@ -38,6 +38,12 @@ class BooksController < ApplicationController
     @book.destroy
   end
 
+  # GET /search
+  def search
+    @books = Book.where("title LIKE ? OR author LIKE ? OR genre LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
+    render json: @books
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
