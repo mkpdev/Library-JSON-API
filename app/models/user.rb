@@ -8,4 +8,6 @@ class User < ApplicationRecord
             if: -> { new_record? || !password.nil? }
 
   enum role: ["admin", "user"]
+
+  has_many :checkouts
 end

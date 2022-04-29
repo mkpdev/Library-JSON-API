@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  book: one
+  assigned_at: 2022-04-29 15:46:00
+  return_at: 2022-04-29 15:46:00
+  status: 1
+
+two:
+  user: two
+  book: two
+  assigned_at: 2022-04-29 15:46:00
+  return_at: 2022-04-29 15:46:00
+  status: 1
