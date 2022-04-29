@@ -10,6 +10,8 @@ Authentication: Json Web Token (JWT)
 
 Authorization: pundit
 
+Postman collection: https://github.com/mkpdev/Library-JSON-API/blob/main/Library.postman_collection.json
+
 Addon:
 Interactor gem
 JSON:API API implementation
