@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby Version: 2.6.5
 
-Things you may want to cover:
+Rails Version: 5.2.7.1
 
-* Ruby version
+DataBase: postgres
 
-* System dependencies
+Authentication: Json Web Token (JWT)
 
-* Configuration
+Authorization: pundit
 
-* Database creation
+Addon:
+Interactor gem
+JSON:API API implementation
 
-* Database initialization
+# Functionality:
 
-* How to run the test suite
+Admin:
+1. Can CRUD User
+2. Can CRUD Book
+3. List checkout of a book
+4. List checkout of a user
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+User:
+1. Can Checkout Book
+2. Can Return Book
